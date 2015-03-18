@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="activity" destination="jSz-c0-Xqa" id="NPH-rA-84g"/>
+                <outlet property="button" destination="XSa-N5-uNT" id="CWI-PT-N8h"/>
+                <outlet property="view" destination="UKH-8H-8CN" id="9JP-vV-yxG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UKH-8H-8CN">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSa-N5-uNT">
+                    <rect key="frame" x="254" y="285" width="93" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ZNA-0Q-adY"/>
+                        <constraint firstAttribute="width" constant="93" id="y9j-WD-Uht"/>
+                    </constraints>
+                    <state key="normal" title="Click here!">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnClicked:" destination="-1" eventType="touchUpInside" id="hWI-Zk-BYY"/>
+                    </connections>
+                </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jSz-c0-Xqa">
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="04W-tf-rfI"/>
+                        <constraint firstAttribute="width" constant="20" id="Rxc-Av-kN6"/>
+                    </constraints>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="XSa-N5-uNT" secondAttribute="centerY" id="9bs-8d-Elb"/>
+                <constraint firstAttribute="centerX" secondItem="jSz-c0-Xqa" secondAttribute="centerX" id="Mb9-AF-gpO"/>
+                <constraint firstAttribute="centerY" secondItem="jSz-c0-Xqa" secondAttribute="centerY" id="OdL-1a-zFx"/>
+                <constraint firstAttribute="centerX" secondItem="XSa-N5-uNT" secondAttribute="centerX" id="Zt2-kT-BoJ"/>
+            </constraints>
+            <point key="canvasLocation" x="326" y="502"/>
+        </view>
+    </objects>
+</document>
