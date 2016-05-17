@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define TITLE_CLASS_HEIGHT 30
+#define TITLE_CLASS_HEIGHT 40
 #define TITLE_CLASS_FONT_SIZE 16
 
 typedef enum {
@@ -29,7 +29,7 @@ typedef enum {
 
 @property (strong, nonatomic) UIScrollView *titleScrollView;
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) UIView *sgContentView;
+@property (strong, nonatomic) IBOutlet UIView *vpContentView;
 
 @property (strong, nonatomic) UIView *lineView;
 @property (strong, nonatomic) UIView *cursorbg;
@@ -41,6 +41,7 @@ typedef enum {
 
 @property (strong, nonatomic) UIColor *classSelectedTextColor;
 @property (strong, nonatomic) UIColor *classNormalTextColor;
+@property (strong, nonatomic) UIColor *classSeparatorLineColor;
 @property (strong, nonatomic) UIColor *classHighlightedTextColor;
 @property (strong, nonatomic) UIColor *classBackgroundColor;
 @property (strong, nonatomic) UIColor *classSelectedBackgroundColor;
@@ -54,12 +55,16 @@ typedef enum {
 @property (nonatomic) CGFloat titleMarginV;
 @property (nonatomic) CGFloat titleMarginH;
 @property (nonatomic) CGFloat titleMarginHa;
+@property (nonatomic) CGFloat titleTopMargin;
 @property (nonatomic) CGFloat dx;
 @property (nonatomic) CGFloat contentScrollWidth;
 @property (nonatomic) ViewPagerTitleStyle viewPagerTitleStyle;
 @property (nonatomic) UIEdgeInsets cursorInsets;
+@property (nonatomic) UIEdgeInsets classSeparatorLineInsets;
 
 @property (nonatomic) BOOL titleCenter;
+
+@property (nonatomic) BOOL ave;
 
 - (void)reloadPages;
 
@@ -76,5 +81,7 @@ typedef enum {
 - (void)addViewController:(UIViewController *)viewController animated:(BOOL)animated;
 
 - (void)addViewController:(UIViewController *)viewController atIndex:(NSInteger)index animated:(BOOL)animated;
+
+- (void)initClassTitleColor;
 
 @end

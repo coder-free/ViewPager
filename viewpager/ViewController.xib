@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
                 <outlet property="activity" destination="jSz-c0-Xqa" id="NPH-rA-84g"/>
                 <outlet property="button" destination="XSa-N5-uNT" id="CWI-PT-N8h"/>
+                <outlet property="button2" destination="ejD-Ij-CVz" id="ZM3-Xd-hNC"/>
                 <outlet property="view" destination="UKH-8H-8CN" id="9JP-vV-yxG"/>
             </connections>
         </placeholder>
@@ -23,7 +24,7 @@
                         <constraint firstAttribute="height" constant="30" id="ZNA-0Q-adY"/>
                         <constraint firstAttribute="width" constant="93" id="y9j-WD-Uht"/>
                     </constraints>
-                    <state key="normal" title="Click here!">
+                    <state key="normal" title="Demo1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -37,10 +38,23 @@
                         <constraint firstAttribute="width" constant="20" id="Rxc-Av-kN6"/>
                     </constraints>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejD-Ij-CVz">
+                    <rect key="frame" x="254" y="323" width="93" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="XEG-MV-YzQ"/>
+                        <constraint firstAttribute="width" constant="93" id="hjg-wv-3yE"/>
+                    </constraints>
+                    <state key="normal" title="Demo2"/>
+                    <connections>
+                        <action selector="btnClicked2:" destination="-1" eventType="touchUpInside" id="3zG-4t-9Ow"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="XSa-N5-uNT" secondAttribute="centerY" id="9bs-8d-Elb"/>
+                <constraint firstItem="ejD-Ij-CVz" firstAttribute="centerX" secondItem="UKH-8H-8CN" secondAttribute="centerX" id="CtS-cH-oBq"/>
+                <constraint firstItem="ejD-Ij-CVz" firstAttribute="top" secondItem="XSa-N5-uNT" secondAttribute="bottom" constant="8" id="M5u-Dg-Qth"/>
                 <constraint firstAttribute="centerX" secondItem="jSz-c0-Xqa" secondAttribute="centerX" id="Mb9-AF-gpO"/>
                 <constraint firstAttribute="centerY" secondItem="jSz-c0-Xqa" secondAttribute="centerY" id="OdL-1a-zFx"/>
                 <constraint firstAttribute="centerX" secondItem="XSa-N5-uNT" secondAttribute="centerX" id="Zt2-kT-BoJ"/>

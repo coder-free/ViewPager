@@ -21,6 +21,7 @@
 @property (nonatomic) NSUInteger pageIndexa;
 @property (strong, nonatomic) NSMutableArray *titleWidths;
 @property (strong, nonatomic) NSMutableArray *viewArrays;
+@property (nonatomic) CGFloat everyTitleMarginH;
 
 @end
 
@@ -30,9 +31,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _pageIndexa = 0;
-        _lockPageChange = YES;
-        _titleCenter = YES;
+        [self initSelf];
         [self initClassTitleColor];
     }
     return self;
@@ -42,9 +41,7 @@
 {
     self = [super init];
     if (self) {
-        _pageIndexa = 0;
-        _lockPageChange = YES;
-        _titleCenter = YES;
+        [self initSelf];
         [self initClassTitleColor];
     }
     return self;
@@ -54,21 +51,30 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _pageIndexa = 0;
-        _lockPageChange = YES;
-        _titleCenter = YES;
+        [self initSelf];
         [self initClassTitleColor];
     }
     return self;
 }
 
-- (void)initClassTitleColor {
+- (void)initSelf
+{
+    _pageIndexa = 0;
+    _lockPageChange = YES;
+    _titleCenter = YES;
+    self.classSeparatorLineInsets = UIEdgeInsetsMake(12, 0, 12, 0);
+}
+
+- (void)initClassTitleColor
+{
+    self.contentBackgroundColor = [UIColor whiteColor];
     self.classBackgroundColor = [ColorTools colorFromHexRGB:@"ffffff"];
-    self.classBottomLineColor = [ColorTools colorFromHexRGB:@"ff3e58"];
-    self.classHighlightedTextColor = [ColorTools colorFromHexRGB:@"222222"];
-    self.classNormalTextColor = [ColorTools colorFromHexRGB:@"000000"];
-    self.classSelectedBackgroundColor = [ColorTools colorFromHexRGB:@"ff3e58"];
-    self.classSelectedTextColor = [ColorTools colorFromHexRGB:@"ffffff"];
+    self.classBottomLineColor = [ColorTools colorFromHexRGB:@"aaaaaa" alpha:1];
+    self.classHighlightedTextColor = [UIColor greenColor];
+    self.classNormalTextColor = [ColorTools colorFromHexRGB:@"525252"];
+    self.classSelectedBackgroundColor = [UIColor greenColor];
+    self.classSelectedTextColor = [UIColor whiteColor];
+    self.classSeparatorLineColor = [ColorTools colorFromHexRGB:@"aaaaaa" alpha:0];
 }
 
 -(void)viewDidLoad {
@@ -88,14 +94,21 @@
         }
             break;
     }
-    _sgContentView = [[UIView alloc] initWithFrame:self.view.frame];
-    _sgContentView.autoresizesSubviews = YES;
-    _sgContentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _sgContentView.backgroundColor = [UIColor clearColor];
-    _titleBarWidth = _sgContentView.frame.size.width;
+    if (!_vpContentView) {
+        _vpContentView = [[UIView alloc] initWithFrame:self.view.frame];
+        _vpContentView.autoresizesSubviews = YES;
+        _vpContentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.view addSubview:_vpContentView];
+    }
+    _titleBarWidth = _vpContentView.frame.size.width;
     _classTitleFont = [UIFont systemFontOfSize:TITLE_CLASS_FONT_SIZE];
-    CGRect frame = CGRectMake(0, 0, _titleBarWidth, TITLE_CLASS_HEIGHT);
+    CGRect frame = CGRectMake(0, 0, _titleBarWidth, TITLE_CLASS_HEIGHT + self.titleTopMargin);
+    UIView *titleView = [[UIView alloc] initWithFrame:frame];
+    titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    titleView.backgroundColor = self.classBackgroundColor;
+    frame = CGRectMake(0, self.titleTopMargin, _titleBarWidth, TITLE_CLASS_HEIGHT);
     _titleScrollView = [[UIScrollView alloc] initWithFrame:frame];
+    [titleView addSubview:_titleScrollView];
     _titleScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     [_titleScrollView setCanCancelContentTouches:NO];
     _titleScrollView.showsHorizontalScrollIndicator = NO;
@@ -105,6 +118,7 @@
     _titleScrollView.userInteractionEnabled = YES;
     _titleScrollView.backgroundColor = [UIColor clearColor];
     UIView *leftview = [[UIView alloc] initWithFrame:CGRectMake(_titleScrollView.frame.origin.x, _titleScrollView.frame.origin.y, 5, _titleScrollView.frame.size.height)];
+    leftview.hidden = YES;
     leftview.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
     leftview.backgroundColor = [UIColor clearColor];
     CAGradientLayer *gradientleft = [CAGradientLayer layer];
@@ -115,6 +129,7 @@
     gradientleft.endPoint = CGPointMake(1, 0);
     [leftview.layer insertSublayer:gradientleft atIndex:0];
     UIView *rightview = [[UIView alloc] initWithFrame:CGRectMake(_titleScrollView.frame.origin.x + _titleScrollView.frame.size.width - 5, _titleScrollView.frame.origin.y, 5, _titleScrollView.frame.size.height)];
+    rightview.hidden = YES;
     rightview.tintColor = [UIColor clearColor];
     rightview.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
     CAGradientLayer *gradientright = [CAGradientLayer layer];
@@ -125,12 +140,12 @@
     gradientright.endPoint = CGPointMake(1, 0);
     [rightview.layer insertSublayer:gradientright atIndex:0];
     
-    frame = CGRectMake(0, _titleScrollView.frame.origin.y + TITLE_CLASS_HEIGHT , _sgContentView.bounds.size.width, 0.5);
+    frame = CGRectMake(0, _titleScrollView.frame.origin.y + TITLE_CLASS_HEIGHT , _vpContentView.bounds.size.width, 0.5);
     UIView *lineView = [[UIView alloc] initWithFrame:frame];
     lineView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     lineView.backgroundColor = [UIColor clearColor];
     
-    frame = CGRectMake(0, _titleScrollView.frame.origin.y + _titleScrollView.frame.size.height, _sgContentView.bounds.size.width, _sgContentView.bounds.size.height - _titleScrollView.frame.origin.y - _titleScrollView.frame.size.height);
+    frame = CGRectMake(0, _titleScrollView.frame.origin.y + _titleScrollView.frame.size.height, _vpContentView.bounds.size.width, _vpContentView.bounds.size.height - _titleScrollView.frame.origin.y - _titleScrollView.frame.size.height);
     
     _scrollView = [[UIScrollView alloc] initWithFrame:frame];
     _contentScrollWidth = frame.size.width;
@@ -141,19 +156,18 @@
     _scrollView.canCancelContentTouches = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.clipsToBounds = YES;
-    _scrollView.scrollEnabled = YES;
+//    _scrollView.scrollEnabled = NO;
     _scrollView.pagingEnabled = YES;
     [_scrollView addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
-//    _sgContentView.backgroundColor = self.contentBackgroundColor;
-    [_sgContentView addSubview:_scrollView];
-    [_sgContentView addSubview:_titleScrollView];
-    [_sgContentView addSubview:leftview];
-    [_sgContentView addSubview:rightview];
-    [_sgContentView addSubview:lineView];
-    [self.view addSubview:_sgContentView];
+    _vpContentView.backgroundColor = self.contentBackgroundColor;
+    [_vpContentView addSubview:_scrollView];
+    [_vpContentView addSubview:titleView];
+    [_vpContentView addSubview:leftview];
+    [_vpContentView addSubview:rightview];
+    [_vpContentView addSubview:lineView];
     self.lineView = lineView;
     _lockPageChange = NO;
-    [_sgContentView addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
+    [_vpContentView addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
     if ([self.childViewControllers count] > 0) {
         [self reloadPages];
     }
@@ -162,10 +176,18 @@
 
 - (void)initLayoutParam {
     [self initTitleItemWidth];
-    _titleMarginHa = _titleBarWidth - [self getTitlesWidth];
-    _titleMarginHa /= [self.titleWidths count] + 1;
-    if (_titleMarginHa < 0) {
+    _titleMarginHa = _titleBarWidth - [self getTitlesTextWidth];
+    if (self.ave) {
+        _everyTitleMarginH = _titleMarginHa / self.childViewControllers.count / 2;
         _titleMarginHa = 0;
+        if (_everyTitleMarginH < 0) {
+            _everyTitleMarginH = 0;
+        }
+    } else {
+        _titleMarginHa /= 2;
+        if (_titleMarginHa < 0) {
+            _titleMarginHa = 0;
+        }
     }
 }
 
@@ -174,13 +196,17 @@
         CGSize size = [_scrollView contentSize];
         size.height = _scrollView.bounds.size.height;
         [_scrollView setContentSize:size];
+        if (_titleBarWidth != _vpContentView.bounds.size.width) {
+            _titleBarWidth = _vpContentView.bounds.size.width;
+            [self initLayoutParam];
+        }
         if (_contentScrollWidth != _scrollView.frame.size.width) {
             _contentScrollWidth = _scrollView.frame.size.width;
             [self reloadPages];
         }
-    } else if (object == _sgContentView && [keyPath isEqualToString:@"frame"]) {
-        if (_titleBarWidth != _sgContentView.bounds.size.width) {
-            _titleBarWidth = _sgContentView.bounds.size.width;
+    } else if (object == _vpContentView && [keyPath isEqualToString:@"frame"]) {
+        if (_titleBarWidth != _vpContentView.bounds.size.width) {
+            _titleBarWidth = _vpContentView.bounds.size.width;
             [self initLayoutParam];
             NSLog(@"titleBarWidth:%lu", (unsigned long)_titleBarWidth);
         }
@@ -382,7 +408,7 @@
 }
 
 -(void) initTitleItemWidth {
-    CGFloat defaultWidth = (self.titleScrollView.frame.size.width - ([self.childViewControllers count] - 1) * TITLE_ITEM_MARGIN_H) /  [self.childViewControllers count];
+    CGFloat defaultWidth = 0;//(self.titleScrollView.frame.size.width - ([self.childViewControllers count] - 1) * TITLE_ITEM_MARGIN_H) /  [self.childViewControllers count];
     self.titleWidths = [[NSMutableArray alloc] initWithCapacity:[self.childViewControllers count]];
     for (int i = 0; i < [self.childViewControllers count]; i++) {
         UIViewController *vC = [self.childViewControllers objectAtIndex:i];
@@ -395,21 +421,13 @@
     }
 }
 
--(CGFloat) getTitlesWidthToIndex:(int)index {
+-(CGFloat) getTitlesWidthToIndex:(NSInteger)index {
     float width = 0;
     for (int i =0; i < index; i++) {
         NSNumber *num = [self.titleWidths objectAtIndex:i];
-        width += [num floatValue];
+        width += [num floatValue] + _everyTitleMarginH * 2;
     }
     return width;
-}
-
-- (CGFloat)getTitleItemWidth {
-    if (_pageIndexa >= [self.titleWidths count]) {
-        return CGFLOAT_MAX;
-    }
-    NSNumber *num = [self.titleWidths objectAtIndex:_pageIndexa];
-    return [num floatValue];
 }
 
 - (CGFloat)getTitleItemWidth:(NSInteger)index {
@@ -417,12 +435,20 @@
         return CGFLOAT_MAX;
     }
     NSNumber *num = [self.titleWidths objectAtIndex:index];
-    return [num floatValue];
+    return [num floatValue] + _everyTitleMarginH * 2;
+}
+
+- (CGFloat)getTitleItemWidth {
+    return [self getTitleItemWidth:_pageIndexa];
 }
 
 - (CGFloat)getTitlesWidth {
+    return [self getTitlesWidthToIndex:[self.titleWidths count]];
+}
+
+- (CGFloat)getTitlesTextWidth {
     float width = 0;
-    for (int i = 0; i < [self.titleWidths count]; i++) {
+    for (int i =0; i < [self.titleWidths count]; i++) {
         NSNumber *num = [self.titleWidths objectAtIndex:i];
         width += [num floatValue];
     }
@@ -437,16 +463,19 @@
 }
 
 #pragma mark Properties
+
+
+
 - (void)setPageIndex:(NSUInteger)pageIndex {
-    [self setAllTitleDisSelected];
-    if([self.titleButtons count] > pageIndex) {
-        [[self.titleButtons objectAtIndex:pageIndex] setSelected:YES];
-    }
-    [self setPageIndex:pageIndex animated:YES];
+    [self setPageIndex:pageIndex animated:NO];
 }
 
 - (void)setPageIndex:(NSUInteger)index animated:(BOOL)animated; {
     if(_pageIndexa == index) return;
+    [self setAllTitleDisSelected];
+    if([self.titleButtons count] > index) {
+        [[self.titleButtons objectAtIndex:index] setSelected:YES];
+    }
     
     if(!animated)_pageIndexa = index;
     /*
@@ -497,7 +526,7 @@
     CGFloat newXOff = titlesWidth + (scrollView.contentOffset.x - pageWidth * page)/pageWidth * titleWidth;
     
     CGRect cursorbgframe = self.cursorbg.frame;
-    cursorbgframe.origin.x = newXOff + _dx + (_titleMarginHa * _pageIndexa);
+    cursorbgframe.origin.x = newXOff + _dx;
     cursorbgframe.size.width = titleWidth;
     [self.cursorbg setFrame:cursorbgframe];
     
@@ -580,7 +609,7 @@
     for (UIView *view in _titleScrollView.subviews) {
         [view removeFromSuperview];
     }
-    CGRect titleframe = CGRectMake(- _sgContentView.bounds.size.width, 0, _sgContentView.bounds.size.width, TITLE_CLASS_HEIGHT);
+    CGRect titleframe = CGRectMake(- _vpContentView.bounds.size.width, 0, _vpContentView.bounds.size.width, TITLE_CLASS_HEIGHT);
     UIImageView *titlebg = [[UIImageView alloc] initWithFrame:titleframe];
     titlebg.backgroundColor = [UIColor clearColor];
     _titleScrollView.backgroundColor = self.classBackgroundColor;
@@ -687,9 +716,15 @@
         l.backgroundColor = [UIColor clearColor];
         [l setTitle:vC.title forState:UIControlStateNormal];
         [titleItemView addSubview:l];
+        if (i != count - 1) {
+            UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(titleItemView.frame.size.width - 0.25, self.classSeparatorLineInsets.top, 0.5, titleItemView.frame.size.height - self.classSeparatorLineInsets.top - self.classSeparatorLineInsets.bottom)];
+            lineView.backgroundColor = self.classSeparatorLineColor;
+            lineView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin;
+            [titleItemView addSubview:lineView];
+        }
         [self.titleButtons addObject:l];
         [_titleScrollView addSubview:titleItemView];
-        dx += width + _titleMarginHa;
+        dx += width;// + _titleMarginHa;
         
         UIView *contentView = vC.view;
         CGRect rect = contentView.frame;
@@ -703,7 +738,7 @@
         cx += _scrollView.frame.size.width;
     }
     self.cursorBgimageView.backgroundColor = self.classSelectedBackgroundColor;
-    titleframe.size.width = dx + _sgContentView.bounds.size.width * 2;
+    titleframe.size.width = dx + _vpContentView.bounds.size.width * 2;
     [titlebg setFrame:titleframe];
     [_titleScrollView setContentSize:CGSizeMake(dx, 1)];
     [_scrollView setContentSize:CGSizeMake(cx, 1)];
@@ -726,18 +761,18 @@
         [c performSelector:@selector(pageWillShow)];
     }
     
-    [self displayNeededView];
-    [self hiddenNotNeededView];
+//    [self displayNeededView];
+//    [self hiddenNotNeededView];
     
 }
 
 - (void)hiddenAllView {
-    for (int i = 0; i < [self.viewArrays count]; i++) {
-        UIView *view = [self.viewArrays objectAtIndex:i];
-        if ([view superview]) {
-            [view removeFromSuperview];
-        }
-    }
+//    for (int i = 0; i < [self.viewArrays count]; i++) {
+//        UIView *view = [self.viewArrays objectAtIndex:i];
+//        if ([view superview]) {
+//            [view removeFromSuperview];
+//        }
+//    }
 }
 
 - (void)scrollCurrentViewToTop {
@@ -751,27 +786,27 @@
 }
 
 - (void)hiddenOtherView {
-    for (int i = 0; i < [self.viewArrays count]; i ++) {
-        if (i == _pageIndexa) {
-            continue;
-        }
-        UIView *view = [self.viewArrays objectAtIndex:i];
-        if ([view superview]) {
-            [view removeFromSuperview];
-        }
-    }
+//    for (int i = 0; i < [self.viewArrays count]; i ++) {
+//        if (i == _pageIndexa) {
+//            continue;
+//        }
+//        UIView *view = [self.viewArrays objectAtIndex:i];
+//        if ([view superview]) {
+//            [view removeFromSuperview];
+//        }
+//    }
 }
 
 - (void)hiddenNotNeededView {
-    for (int i = 0; i < [self.viewArrays count]; i ++) {
-        if (i == _pageIndexa || i == _pageIndexa - 1 || i == _pageIndexa + 1) {
-            continue;
-        }
-        UIView *view = [self.viewArrays objectAtIndex:i];
-        if ([view superview]) {
-            [view removeFromSuperview];
-        }
-    }
+//    for (int i = 0; i < [self.viewArrays count]; i ++) {
+//        if (i == _pageIndexa || i == _pageIndexa - 1 || i == _pageIndexa + 1) {
+//            continue;
+//        }
+//        UIView *view = [self.viewArrays objectAtIndex:i];
+//        if ([view superview]) {
+//            [view removeFromSuperview];
+//        }
+//    }
 }
 
 - (void)displayNeededView {
@@ -784,8 +819,14 @@
 }
 
 - (void)displayMoreView {
-    [self displayTheView:_pageIndexa - 1];
-    [self displayTheView:_pageIndexa + 1];
+//    [self displayTheView:_pageIndexa - 1];
+//    [self displayTheView:_pageIndexa + 1];
+    
+    for (NSInteger i = 0; i < self.viewArrays.count; i++) {
+        if (i != _pageIndexa) {
+            [self displayTheView:i];
+        }
+    }
 }
 
 - (void)displayTheView:(NSInteger)index {
@@ -804,7 +845,7 @@
 
 - (void)dealloc {
     [_scrollView removeObserver:self forKeyPath:@"frame" context:nil];
-    [_sgContentView removeObserver:self forKeyPath:@"frame" context:nil];
+    [_vpContentView removeObserver:self forKeyPath:@"frame" context:nil];
 }
 
 - (void)viewDidUnload {

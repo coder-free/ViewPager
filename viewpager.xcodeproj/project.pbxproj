@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18110DA11AB9362A00A6295D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18110D991AB9362A00A6295D /* TableViewCell.m */; };
-		18110DA21AB9362A00A6295D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18110D9A1AB9362A00A6295D /* TableViewCell.xib */; };
-		18110DA31AB9362A00A6295D /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18110D9C1AB9362A00A6295D /* ItemViewController.m */; };
-		18110DA41AB9362A00A6295D /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18110D9D1AB9362A00A6295D /* ItemViewController.xib */; };
 		18110DA51AB9362A00A6295D /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18110D9F1AB9362A00A6295D /* ViewPagerController.m */; };
-		18110DA61AB9362A00A6295D /* ViewPagerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18110DA01AB9362A00A6295D /* ViewPagerController.xib */; };
 		18EDADCD1AB8141B00B326ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDADCC1AB8141B00B326ED /* main.m */; };
 		18EDADD01AB8141B00B326ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDADCF1AB8141B00B326ED /* AppDelegate.m */; };
 		18EDADD31AB8141B00B326ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDADD21AB8141B00B326ED /* ViewController.m */; };
@@ -22,6 +17,12 @@
 		18EDADF81AB8154300B326ED /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EDADF71AB8154300B326ED /* ViewController.xib */; };
 		18EDAE001AB8198A00B326ED /* StringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDADFF1AB8198A00B326ED /* StringTools.m */; };
 		18EDAE0E1AB8231C00B326ED /* ColorTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDAE0D1AB8231C00B326ED /* ColorTools.m */; };
+		2D3001A11CEAD0E200509AE7 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D30019C1CEAD0E100509AE7 /* TableViewCell.m */; };
+		2D3001A21CEAD0E200509AE7 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D30019D1CEAD0E100509AE7 /* TableViewCell.xib */; };
+		2D3001A31CEAD0E200509AE7 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D30019F1CEAD0E100509AE7 /* ItemViewController.m */; };
+		2D3001A41CEAD0E200509AE7 /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D3001A01CEAD0E200509AE7 /* ItemViewController.xib */; };
+		2D3001A81CEAE64700509AE7 /* MyPagerControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3001A61CEAE64700509AE7 /* MyPagerControllerViewController.m */; };
+		2D3001A91CEAE64700509AE7 /* MyPagerControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D3001A71CEAE64700509AE7 /* MyPagerControllerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,15 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18110D981AB9362A00A6295D /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
-		18110D991AB9362A00A6295D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
-		18110D9A1AB9362A00A6295D /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		18110D9B1AB9362A00A6295D /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
-		18110D9C1AB9362A00A6295D /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
-		18110D9D1AB9362A00A6295D /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		18110D9E1AB9362A00A6295D /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
 		18110D9F1AB9362A00A6295D /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
-		18110DA01AB9362A00A6295D /* ViewPagerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewPagerController.xib; sourceTree = "<group>"; };
 		18EDADC71AB8141B00B326ED /* viewpager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = viewpager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EDADCB1AB8141B00B326ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18EDADCC1AB8141B00B326ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -61,6 +55,15 @@
 		18EDADFF1AB8198A00B326ED /* StringTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringTools.m; sourceTree = "<group>"; };
 		18EDAE0C1AB8231C00B326ED /* ColorTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTools.h; sourceTree = "<group>"; };
 		18EDAE0D1AB8231C00B326ED /* ColorTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTools.m; sourceTree = "<group>"; };
+		2D30019B1CEAD0E100509AE7 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		2D30019C1CEAD0E100509AE7 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		2D30019D1CEAD0E100509AE7 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		2D30019E1CEAD0E100509AE7 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		2D30019F1CEAD0E100509AE7 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		2D3001A01CEAD0E200509AE7 /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
+		2D3001A51CEAE64700509AE7 /* MyPagerControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPagerControllerViewController.h; sourceTree = "<group>"; };
+		2D3001A61CEAE64700509AE7 /* MyPagerControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPagerControllerViewController.m; sourceTree = "<group>"; };
+		2D3001A71CEAE64700509AE7 /* MyPagerControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPagerControllerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,25 +87,10 @@
 		18110D961AB9362A00A6295D /* ViewPagerClass */ = {
 			isa = PBXGroup;
 			children = (
-				18110D971AB9362A00A6295D /* cells */,
-				18110D9B1AB9362A00A6295D /* ItemViewController.h */,
-				18110D9C1AB9362A00A6295D /* ItemViewController.m */,
-				18110D9D1AB9362A00A6295D /* ItemViewController.xib */,
 				18110D9E1AB9362A00A6295D /* ViewPagerController.h */,
 				18110D9F1AB9362A00A6295D /* ViewPagerController.m */,
-				18110DA01AB9362A00A6295D /* ViewPagerController.xib */,
 			);
 			path = ViewPagerClass;
-			sourceTree = "<group>";
-		};
-		18110D971AB9362A00A6295D /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				18110D981AB9362A00A6295D /* TableViewCell.h */,
-				18110D991AB9362A00A6295D /* TableViewCell.m */,
-				18110D9A1AB9362A00A6295D /* TableViewCell.xib */,
-			);
-			path = cells;
 			sourceTree = "<group>";
 		};
 		18EDADBE1AB8141B00B326ED = {
@@ -128,11 +116,18 @@
 		18EDADC91AB8141B00B326ED /* viewpager */ = {
 			isa = PBXGroup;
 			children = (
+				2D30019A1CEAD0E100509AE7 /* cells */,
+				2D30019E1CEAD0E100509AE7 /* ItemViewController.h */,
+				2D30019F1CEAD0E100509AE7 /* ItemViewController.m */,
+				2D3001A01CEAD0E200509AE7 /* ItemViewController.xib */,
 				18EDADCE1AB8141B00B326ED /* AppDelegate.h */,
 				18EDADCF1AB8141B00B326ED /* AppDelegate.m */,
 				18EDADD11AB8141B00B326ED /* ViewController.h */,
 				18EDADD21AB8141B00B326ED /* ViewController.m */,
 				18EDADF71AB8154300B326ED /* ViewController.xib */,
+				2D3001A51CEAE64700509AE7 /* MyPagerControllerViewController.h */,
+				2D3001A61CEAE64700509AE7 /* MyPagerControllerViewController.m */,
+				2D3001A71CEAE64700509AE7 /* MyPagerControllerViewController.xib */,
 				18EDADD71AB8141B00B326ED /* Images.xcassets */,
 				18EDADD91AB8141B00B326ED /* LaunchScreen.xib */,
 				18EDADCA1AB8141B00B326ED /* Supporting Files */,
@@ -175,6 +170,16 @@
 				18EDAE0D1AB8231C00B326ED /* ColorTools.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		2D30019A1CEAD0E100509AE7 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				2D30019B1CEAD0E100509AE7 /* TableViewCell.h */,
+				2D30019C1CEAD0E100509AE7 /* TableViewCell.m */,
+				2D30019D1CEAD0E100509AE7 /* TableViewCell.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +226,7 @@
 		18EDADBF1AB8141B00B326ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = com.test;
 				TargetAttributes = {
 					18EDADC61AB8141B00B326ED = {
@@ -257,10 +262,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18110DA61AB9362A00A6295D /* ViewPagerController.xib in Resources */,
 				18EDADDB1AB8141B00B326ED /* LaunchScreen.xib in Resources */,
-				18110DA21AB9362A00A6295D /* TableViewCell.xib in Resources */,
-				18110DA41AB9362A00A6295D /* ItemViewController.xib in Resources */,
+				2D3001A21CEAD0E200509AE7 /* TableViewCell.xib in Resources */,
+				2D3001A91CEAE64700509AE7 /* MyPagerControllerViewController.xib in Resources */,
+				2D3001A41CEAD0E200509AE7 /* ItemViewController.xib in Resources */,
 				18EDADF81AB8154300B326ED /* ViewController.xib in Resources */,
 				18EDADD81AB8141B00B326ED /* Images.xcassets in Resources */,
 			);
@@ -280,12 +285,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D3001A11CEAD0E200509AE7 /* TableViewCell.m in Sources */,
 				18EDADD31AB8141B00B326ED /* ViewController.m in Sources */,
-				18110DA11AB9362A00A6295D /* TableViewCell.m in Sources */,
 				18EDADD01AB8141B00B326ED /* AppDelegate.m in Sources */,
-				18110DA31AB9362A00A6295D /* ItemViewController.m in Sources */,
+				2D3001A81CEAE64700509AE7 /* MyPagerControllerViewController.m in Sources */,
 				18EDADCD1AB8141B00B326ED /* main.m in Sources */,
 				18EDAE001AB8198A00B326ED /* StringTools.m in Sources */,
+				2D3001A31CEAD0E200509AE7 /* ItemViewController.m in Sources */,
 				18110DA51AB9362A00A6295D /* ViewPagerController.m in Sources */,
 				18EDAE0E1AB8231C00B326ED /* ColorTools.m in Sources */,
 			);
@@ -325,11 +331,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv7,
-					armv7s,
-					arm64,
-				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -346,6 +347,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -372,11 +374,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv7,
-					armv7s,
-					arm64,
-				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -412,15 +409,11 @@
 		18EDADEB1AB8141B00B326ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv7,
-					armv7s,
-					arm64,
-				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = viewpager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -428,15 +421,11 @@
 		18EDADEC1AB8141B00B326ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv7,
-					armv7s,
-					arm64,
-				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = viewpager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -455,6 +444,7 @@
 				);
 				INFOPLIST_FILE = viewpagerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/viewpager.app/viewpager";
 			};
@@ -470,6 +460,7 @@
 				);
 				INFOPLIST_FILE = viewpagerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/viewpager.app/viewpager";
 			};
